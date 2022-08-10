@@ -2,6 +2,8 @@ A client mdb that accesses the remote broker on port  61766. Uses CLI script exe
 * mvn clean package
 * Launch the server:
 
+* Fix 1: Use org.apache.activemq.artemis.api.jms.ActiveMQJMSClient=true system property
+
 SERVER_ARGS="-Dorg.apache.activemq.artemis.api.jms.ActiveMQJMSClient=true" \
 WILDFLY_PUBLIC_BIND_ADDRESS=127.0.0.1 WILDFLY_MANAGEMENT_BIND_ADDRESS=127.0.0.1 \
 JBOSS_MESSAGING_HOST=127.0.0.1 JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=y" \
@@ -9,7 +11,16 @@ TEST_QUEUES=HELLOWORLDMDBQueue TEST_TOPICS=HELLOWORLDMDBTopic TEST_USERNAME=foo 
 TEST_PASSWORD=foo MQ_SERVICE_PREFIX_MAPPING="wf-app-amq7=TEST" WF_APP_AMQ_TCP_SERVICE_HOST="127.0.0.1" \
 WF_APP_AMQ_TCP_SERVICE_PORT=61766 JBOSS_HOME=$PWD/target/server ./target/server/bin/openshift-launch.sh
 
-* You will notice that the following trace repeats infinitely: AMQ151000: awaiting topic/queue creation HELLOWORLDMDBQueue
+* Fix 2: Name the queue jms.queue.HELLOWORLDMDBQueue in the env variable.
+
+WILDFLY_PUBLIC_BIND_ADDRESS=127.0.0.1 WILDFLY_MANAGEMENT_BIND_ADDRESS=127.0.0.1 \
+JBOSS_MESSAGING_HOST=127.0.0.1 JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=y" \
+TEST_QUEUES=jms.queue.HELLOWORLDMDBQueue TEST_TOPICS=HELLOWORLDMDBTopic TEST_USERNAME=foo \
+TEST_PASSWORD=foo MQ_SERVICE_PREFIX_MAPPING="wf-app-amq7=TEST" WF_APP_AMQ_TCP_SERVICE_HOST="127.0.0.1" \
+WF_APP_AMQ_TCP_SERVICE_PORT=61766 JBOSS_HOME=$PWD/target/server ./target/server/bin/openshift-launch.sh
+
+You need to update the src code with the following:
+* HelloWorldQueueMDB destinationLookup to be jms.queue.HELLOWORLDMDBQueue
+* HelloWorldMDBServletClient @Resource(lookup = "java:/jms.queue.HELLOWORLDMDBQueue")
 
 * Access the servlet: http://127.0.0.1:8080/HelloWorldMDBServletClient
-Exception thrown in the client.
