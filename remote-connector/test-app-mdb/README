@@ -2,6 +2,9 @@ A client mdb that accesses the remote broker on port  61766. Uses CLI script exe
 * mvn clean package
 * Launch the server:
 
+SERVER_ARGS="-Dorg.apache.activemq.artemis.api.jms.ActiveMQJMSClient=true" \
+WILDFLY_PUBLIC_BIND_ADDRESS=127.0.0.1 WILDFLY_MANAGEMENT_BIND_ADDRESS=127.0.0.1 \
+JBOSS_MESSAGING_HOST=127.0.0.1 JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=y" \
 TEST_QUEUES=HELLOWORLDMDBQueue TEST_TOPICS=HELLOWORLDMDBTopic TEST_USERNAME=foo \
 TEST_PASSWORD=foo MQ_SERVICE_PREFIX_MAPPING="wf-app-amq7=TEST" WF_APP_AMQ_TCP_SERVICE_HOST="127.0.0.1" \
 WF_APP_AMQ_TCP_SERVICE_PORT=61766 JBOSS_HOME=$PWD/target/server ./target/server/bin/openshift-launch.sh

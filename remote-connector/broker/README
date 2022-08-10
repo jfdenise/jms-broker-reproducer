@@ -1,6 +1,6 @@
 An embedded broker that acts as a remote broker. Accessed thanks to remote connector on port  61766
 * You can check the jms.cli script, that adds queue, topic, acceptor and socket binding.
 * mvn clean package
-* Add a user foo, password foo in group guest: ./target/server/bin/add-user.sh
+* Add a user foo, password foo in group guest: ./target/server/bin/add-user.sh -a -p foo -u foo -g guest
 * Start the broker: 
 ./target/server/bin/standalone.sh -Djboss.socket.binding.port-offset=100
