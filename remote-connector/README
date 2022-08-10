@@ -1,0 +1,7 @@
+
+* The broker accepts request on remote acceptor.
+* The client uses naming subsystem configuration for queues and topics, that is what cloud CLI launch scripts generate based on env variables.
+
+* Follow broker README then test-app-mdb README.
+
+* The problem is trace  "AMQ151000: awaiting topic/queue creation HELLOWORLDMDBQueue" on the client

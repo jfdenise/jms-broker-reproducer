@@ -1,0 +1,6 @@
+An embedded broker that acts as a remote broker. Accessed thanks to http acceptor on port  8180
+Not queue/topic are created.
+* mvn clean package
+* Add a user foo, password foo in group guest: ./target/server/bin/add-user.sh
+* Start the broker: 
+./target/server/bin/standalone.sh -Djboss.socket.binding.port-offset=100

@@ -1,0 +1,6 @@
+/socket-binding-group=standard-sockets/socket-binding=messaging:add(interface=public,port=61666)
+/subsystem=messaging-activemq/server=default/remote-acceptor=netty:add(socket-binding=messaging)
+/subsystem=messaging-activemq/server=default/jms-topic=HELLOWORLDMDBTopic:add(entries=[java:jboss/exported/jms/topic/HELLOWORLDMDBTopic])
+/subsystem=messaging-activemq/server=default/jms-queue=HELLOWORLDMDBQueue:add(entries=[java:jboss/exported/jms/queue/HELLOWORLDMDBQueue])
+# Fails when called
+# /subsystem=messaging-activemq/server=default/queue=HELLOWORLDMDBQueue:add(queue-address=HELLOWORLDMDBQueue, durable=true, routing-type=ANYCAST)

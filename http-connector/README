@@ -1,0 +1,6 @@
+* The broker accepts request on http acceptor.
+* The client uses external-jms-queue and topic.
+
+* Follow broker README then test-app-mdb README.
+
+* The problem that the queue don't seem to be created, no traces, but the servlet is stuck when accessing the provider.
