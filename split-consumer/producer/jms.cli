@@ -4,4 +4,3 @@
 /subsystem=messaging-activemq/external-jms-topic=HELLOWORLDMDBTopic:add(entries=[java:/HELLOWORLDMDBTopic])
 /subsystem=messaging-activemq/external-jms-queue=HELLOWORLDMDBQueue:add(entries=[java:/HELLOWORLDMDBQueue])
 /subsystem=ee/service=default-bindings:write-attribute(name=jms-connection-factory, value="java:/wf-broker/ConnectionFactory")
-/subsystem=ejb3:write-attribute(name=default-resource-adapter-name, value=wf-ra-remote.rar)
