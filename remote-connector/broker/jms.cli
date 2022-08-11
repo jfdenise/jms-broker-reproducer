@@ -2,5 +2,4 @@
 /subsystem=messaging-activemq/server=default/remote-acceptor=netty:add(socket-binding=messaging)
 /subsystem=messaging-activemq/server=default/jms-topic=HELLOWORLDMDBTopic:add(entries=[java:jboss/exported/jms/topic/HELLOWORLDMDBTopic])
 /subsystem=messaging-activemq/server=default/jms-queue=HELLOWORLDMDBQueue:add(entries=[java:jboss/exported/jms/queue/HELLOWORLDMDBQueue])
-# Fails when called
-# /subsystem=messaging-activemq/server=default/queue=HELLOWORLDMDBQueue:add(queue-address=HELLOWORLDMDBQueue, durable=true, routing-type=ANYCAST)
+/subsystem=messaging-activemq/server=default:write-attribute(name=security-enabled,value=false)
