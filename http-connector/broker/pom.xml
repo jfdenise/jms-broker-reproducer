@@ -71,6 +71,14 @@
                         <layer>ejb</layer>
                         <layer>embedded-activemq</layer>
                     </layers>
+                    <packaging-scripts>
+                        <cli-session>
+                            <resolveExpressions>true</resolveExpressions>
+                            <scripts>
+                                <script>jms.cli</script>
+                            </scripts>
+                        </cli-session>
+                    </packaging-scripts>
                     <galleon-options>
                         <jboss-fork-embedded>${plugin.fork.embedded}</jboss-fork-embedded>
                     </galleon-options>
