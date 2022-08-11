@@ -3,7 +3,7 @@ See jms.cli script.
 
 * mvn clean package
 * Launch the server:
-./target/server/standalone.sh
+./target/server/bin/standalone.sh
 
 * Access the servlet: http://127.0.0.1:8080/HelloWorldMDBServletClient
 The servlet is stuck accessing the provider.
