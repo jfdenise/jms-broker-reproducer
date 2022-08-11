@@ -134,4 +134,4 @@ These messages are persisted, waiting for a consumer to come online.
 
 `oc scale --replicas=1 deployments mdb-consumer`
 
-Once ready, you will notice in the log that the messages are getting delivered.
+Once the pod is ready, you will notice in the log that the messages are getting delivered.
