@@ -25,3 +25,5 @@ hs_err_pid*
 /remote-connector/broker/target/
 /http-connector/test-app-mdb/target/
 /http-connector/broker/target/
+/split-consumer/broker/target/
+/split-consumer/producer/target/

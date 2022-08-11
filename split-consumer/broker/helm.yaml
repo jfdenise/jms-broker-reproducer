@@ -1,0 +1,7 @@
+build:
+  uri: https://github.com/jfdenise/jms-broker-reproducer
+  contextDir: split-consumer/broker
+  ref: main
+deploy:
+  replicas: 1
+    

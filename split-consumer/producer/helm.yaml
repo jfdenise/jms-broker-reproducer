@@ -1,0 +1,11 @@
+build:
+  uri: https://github.com/jfdenise/jms-broker-reproducer
+  contextDir: split-consumer/producer
+  ref: main
+deploy:
+  replicas: 1
+  env:
+    - name: BROKER_HOST
+      value: "my-broker-http"
+    - name: BROKER_PORT
+      value: "8080"
