@@ -1,0 +1,31 @@
+build:
+  uri: https://github.com/jfdenise/jms-broker-reproducer
+  mode: s2i
+  contextDir: remote-connector/test-app-mdb
+  ref: main
+  s2i:
+    version: latest
+    builderImage: quay.io/wildfly/wildfly-s2i-jdk11
+    runtimeImage: quay.io/wildfly/wildfly-runtime-jdk11
+deploy:
+  replicas: 1
+  env:
+    - name: SERVER_ARGS
+      value: "-Dorg.apache.activemq.artemis.api.jms.ActiveMQJMSClient.enable1xPrefixes=true"
+    - name: TEST_QUEUES
+      value: "HELLOWORLDMDBQueue"
+    - name: TEST_TOPICS
+      value: "HELLOWORLDMDBTopic"
+    - name: TEST_USERNAME
+      value: "foo"
+    - name: TEST_PASSWORD
+      value: "foo"
+    - name: TEST_USERNAME
+      value: "foo"
+    - name: MQ_SERVICE_PREFIX_MAPPING
+      value: "wf-app-amq7=TEST"
+    - name: WF_APP_AMQ_TCP_SERVICE_HOST
+      value: "my-jms-broker"
+    - name: WF_APP_AMQ_TCP_SERVICE_PORT
+      value: "61666"
+    
