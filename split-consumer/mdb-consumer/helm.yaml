@@ -6,7 +6,5 @@ deploy:
   replicas: 1
   env:
     - name: BROKER_HOST
-      value: "my-broker-http"
-    - name: BROKER_PORT
-      value: "8080"
+      value: "jms-broker"
     

@@ -1,6 +1,0 @@
-A client mdb that accesses the remote broker on port  8180. Uses a CLI script executed at build time to create external queues and topics.
-See jms.cli script.
-
-* mvn clean package
-* Launch the server:
-PORT_OFFSET=300 BROKER_HOST=127.0.0.1 BROKER_PORT=8180 JBOSS_HOME=$PWD/target/server ./target/server/bin/openshift-launch.sh

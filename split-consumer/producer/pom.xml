@@ -72,7 +72,6 @@
                     </feature-packs>
                     <layers>
                         <layer>cloud-server</layer>
-                        <layer>ejb</layer>
                     </layers>
                     <packaging-scripts>
                         <cli-session>

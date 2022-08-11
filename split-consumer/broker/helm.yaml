@@ -4,4 +4,11 @@ build:
   ref: main
 deploy:
   replicas: 1
+  volumes:
+      - name: jms-journal
+        persistentVolumeClaim:
+          claimName: jms-journal
+  volumeMounts:
+        - mountPath: "/tmp/jms-journal"
+          name: jms-journal
     

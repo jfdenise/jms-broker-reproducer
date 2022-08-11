@@ -71,7 +71,6 @@
                     </feature-packs>
                     <layers>
                         <layer>cloud-server</layer>
-                        <layer>ejb</layer>
                         <layer>embedded-activemq</layer>
                     </layers>
                     <packaging-scripts>

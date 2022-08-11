@@ -1,5 +1,0 @@
-An embedded broker that acts as a remote broker. Accessed thanks to http acceptor on port  8180
-Not queue/topic are created.
-* mvn clean package
-* Start the broker: 
-PORT_OFFSET=100 JBOSS_HOME=$PWD/target/server ./target/server/bin/openshift-launch.sh
