@@ -1,0 +1,12 @@
+build:
+  uri: https://github.com/jfdenise/jms-broker-reproducer
+  mode: s2i
+  contextDir: http-connector/broker
+  ref: main
+  s2i:
+    version: latest
+    builderImage: quay.io/wildfly/wildfly-s2i-jdk11
+    runtimeImage: quay.io/wildfly/wildfly-runtime-jdk11
+deploy:
+  replicas: 1
+    
